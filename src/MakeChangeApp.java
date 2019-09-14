@@ -11,11 +11,17 @@ public class MakeChangeApp {
 		itemPrice = sc.nextDouble();
 		System.out.println("\nHow much $ is being paid?: ");
 		amountPaid = sc.nextDouble();
+		System.out.println("--------------------------------------------\n");
 
 		if (amountPaid < itemPrice) {
-			System.out.println("You are short on $ $ $ !");
+			System.out.println("      ** ERROR **        ");
+			System.out.println("You are short on money!!!");
 		} else if (amountPaid == itemPrice) {
-			System.out.println("You paid the full amount, thank you!");
+			System.out.println("     - You paid the full amount -\n");
+			System.out.println("*****************************************");
+			System.out.println("* Thank you, and have a wonderfull day! *");
+			System.out.println("*****************************************");
+			sc.close();
 
 		} else {
 			customersChange(amountPaid, itemPrice);
@@ -28,6 +34,9 @@ public class MakeChangeApp {
 		int amountPaidPennies = (int) (amountPaid * 100  + 0.005);
 		int amountPricePennies = (int) (itemPrice * 100  + 0.005);
 		int changeOwed = (amountPaidPennies - amountPricePennies);
+		double finChangedOwed = (double)(changeOwed) / 100;
+		int twenty = 0;
+		int ten = 0;
 		int five = 0;
 		int dollars = 0;
 		int quarters = 0;
@@ -35,12 +44,20 @@ public class MakeChangeApp {
 		int nickels = 0;
 		int pennies = 0;
 
-		System.out.println(changeOwed);
-		int j = (int) changeOwed;
-		double b = (double) j;
-		System.out.println(j);
-		b = b / 100;
-		
+		if (changeOwed >= 2000) {
+			do {
+				twenty++;
+				changeOwed -= 2000;
+			} while (changeOwed >= 2000);
+			
+		}
+		if (changeOwed >= 1000) {
+			do {
+				ten++;
+				changeOwed -= 1000;
+			} while (changeOwed >= 1000);
+			
+		}
 		if (changeOwed >= 500) {
 			do {
 				five++;
@@ -48,7 +65,6 @@ public class MakeChangeApp {
 			} while (changeOwed >= 500);
 			
 		}
-		System.out.println( "fives" + five);
 		if (changeOwed >= 100) {
 			do {
 				dollars++;
@@ -56,7 +72,6 @@ public class MakeChangeApp {
 			} while (changeOwed >= 100);
 
 		}
-		System.out.println( "dollars" + dollars);
 
 
 		if (changeOwed >= 25) {
@@ -66,7 +81,6 @@ public class MakeChangeApp {
 			} while (changeOwed >= 25);
 
 		}
-		System.out.println("quarters" +quarters);
 
 		if (changeOwed >= 10) {
 			do {
@@ -74,7 +88,6 @@ public class MakeChangeApp {
 				changeOwed -= 10;
 			} while (changeOwed >= 10);
 		}
-		System.out.println("dimes" + dimes);
 
 		if (changeOwed >= 5) {
 			do {
@@ -82,7 +95,6 @@ public class MakeChangeApp {
 				changeOwed -= 5;
 			} while (changeOwed >= 5);
 		}
-		System.out.println("nickels" + nickels);
 		
 		if (changeOwed >= 1) {
 			do {
@@ -90,24 +102,15 @@ public class MakeChangeApp {
 				changeOwed--;
 			}while (changeOwed >= 1);
 		}
-		System.out.println("pennies" + pennies);
-//		b = b * 100;
-//		Math.floor(b);
-//		j = (int) b;
-//		b = (double) j;
-//		pennies = b;
-//		System.out.println(b);
+		System.out.println("You gave me: " + amountPaid + ".\nNow I owe you: " + finChangedOwed);
+		System.out.println("So this is what I'll give you back...\nTwenties : " + twenty);
+		System.out.println("Tens: " + ten + "\nFives: " + five + "\nOnes: " + dollars + "\nQuarters: " + quarters);
+		System.out.println("Dimes: " + dimes + "\nNickles: " + nickels + "\nPennies: " + pennies);
+		System.out.println("\n*****************************************");
+		System.out.println("* Thank you, and have a wonderfull day! *");
+		System.out.println("*****************************************");
+
 		
-
-//		System.out.println(pennies);
-//		b = b / 100;
-
-//		if (b >= 0.01) {
-//			do {
-//				pennies++;
-//				b -= 0.01;
-//			} while (b >= 0.01);
-//		}
 
 	}
 }
