@@ -25,63 +25,72 @@ public class MakeChangeApp {
 	}
 
 	public static void customersChange(double amountPaid, double itemPrice) {
-		double changeOwed = (amountPaid - itemPrice);
-		double dollars = 0;
-		double quarters = 0;
-		double dimes = 0;
-		double nickels = 0;
-		double pennies = 0;
+		int amountPaidPennies = (int) (amountPaid * 100  + 0.005);
+		int amountPricePennies = (int) (itemPrice * 100  + 0.005);
+		int changeOwed = (amountPaidPennies - amountPricePennies);
+		int five = 0;
+		int dollars = 0;
+		int quarters = 0;
+		int dimes = 0;
+		int nickels = 0;
+		int pennies = 0;
 
-		changeOwed = changeOwed * 100;
-		Math.floor(changeOwed);
+		System.out.println(changeOwed);
 		int j = (int) changeOwed;
 		double b = (double) j;
+		System.out.println(j);
 		b = b / 100;
-
-		if (b >= 1) {
+		
+		if (changeOwed >= 500) {
+			do {
+				five++;
+				changeOwed -= 500;
+			} while (changeOwed >= 500);
+			
+		}
+		System.out.println( "fives" + five);
+		if (changeOwed >= 100) {
 			do {
 				dollars++;
-				b -= 1;
-			} while (b >= 1);
+				changeOwed -= 100;
+			} while (changeOwed >= 100);
 
 		}
-		b = b * 100;
-		Math.floor(b);
-		j = (int) b;
-		b = (double) j;
-		b = b / 100;
+		System.out.println( "dollars" + dollars);
 
-		if (b >= 0.25) {
+
+		if (changeOwed >= 25) {
 			do {
 				quarters++;
-				b -= 0.25;
-			} while (b >= 0.25);
+				changeOwed -= 25;
+			} while (changeOwed >= 25);
 
 		}
-		b = b * 100;
-		Math.floor(b);
-		j = (int) b;
-		b = (double) j;
-		b = b / 100;
+		System.out.println("quarters" +quarters);
 
-		if (b >= 0.10) {
+		if (changeOwed >= 10) {
 			do {
 				dimes++;
-				b -= 0.10;
-			} while (b >= 0.10);
+				changeOwed -= 10;
+			} while (changeOwed >= 10);
 		}
-		b = b * 100;
-		Math.floor(b);
-		j = (int) b;
-		b = (double) j;
-		b = b / 100;
+		System.out.println("dimes" + dimes);
 
-		if (b >= 0.05) {
+		if (changeOwed >= 5) {
 			do {
 				nickels++;
-				b -= 0.05;
-			} while (b >= 0.05);
+				changeOwed -= 5;
+			} while (changeOwed >= 5);
 		}
+		System.out.println("nickels" + nickels);
+		
+		if (changeOwed >= 1) {
+			do {
+				pennies++;
+				changeOwed--;
+			}while (changeOwed >= 1);
+		}
+		System.out.println("pennies" + pennies);
 //		b = b * 100;
 //		Math.floor(b);
 //		j = (int) b;
@@ -89,10 +98,7 @@ public class MakeChangeApp {
 //		pennies = b;
 //		System.out.println(b);
 		
-		System.out.println("\n" + dollars);
-		System.out.println(quarters);
-		System.out.println(dimes);
-		System.out.println(nickels);
+
 //		System.out.println(pennies);
 //		b = b / 100;
 
