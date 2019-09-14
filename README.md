@@ -1,8 +1,8 @@
-## Make CHange Project
+## Make Change Project
 
 ### First week homework for SkillDistillery
 
-###Overview
+### Overview
 
 This program simulates a cash transaction interface.
 
@@ -10,4 +10,4 @@ This program simulates a cash transaction interface.
 
 ### Technologies/topics used
 
-##Lessons
+## Lessons
